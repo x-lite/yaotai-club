@@ -1,17 +1,22 @@
 const Koa = require('koa')
-const app = new Koa()
 const mongoose = require('mongoose')
-const {dbURI, PORT} = require('./config')
+const app = new Koa()
+const { PORT } = require('./config')
+const { connect, initSchema} = require('./database/init')
+const port = process.env.PORT || PORT
 
-mongoose.connect(dbURI)
-    .then(() => console.log('mongodb connected success'))
-    .catch(err => console.log(`oops..., err => ${err}`))
+;(async () => {
+    await connect()
+    initSchema()
+    let Movie = mongoose.model('Movie')
+    let ms = await Movie.find({})
+    console.log(ms)
+})()
 
 app.use( async (ctx, next) => {
     ctx.body = 'hello api'
     next()
 })
-
-app.listen(PORT, () => {
-    console.log(`server start on ${PORT}...`)
+app.listen(port, () => {
+    console.log(`server start on ${port}...`)
 })
