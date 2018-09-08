@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Icon, Avatar, Menu, Dropdown, Badge} from 'antd';
+import { bus } from '../../utils';
 import './index.less';
 export default class Header extends Component {
     state = {
@@ -14,6 +15,14 @@ export default class Header extends Component {
         } else {
             return <Icon type="menu-unfold" theme="outlined" />
         }
+    }
+
+    hanldeClick = e => {
+        this.setState({
+            isFold: !this.state.isFold
+        })
+        // console.log('bus emit', bus)
+        bus.emit('changeFold', !this.state.isFold);
     }
 
     
@@ -31,7 +40,7 @@ export default class Header extends Component {
         return (
             <div className="header">
                 <div className="header-tools">
-                    <div className="tools-fold">
+                    <div className="tools-fold" onClick={this.hanldeClick}>
                         {this.renderIocn(this.state.isFold)}
                     </div>
                     <div className="tools-right">
