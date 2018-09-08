@@ -1,5 +1,28 @@
+@import '../../styles/variables.less';
 .header{
     height: 4rem;
     line-height: 4rem;
-    background: gray;
+    padding: 1rem;
+    background: #fff;
+    border-bottom: 1px solid @color-border;
+    .header-tools{
+        display: flex;
+        justify-content: space-between;
+        height: 2rem;
+        line-height: 2rem;
+        .tools-fold{
+            font-size: 20px;
+            cursor: pointer;
+        }
+        .tools-right{
+            width: 160px;
+            display: flex;
+            justify-content: space-between;
+            color:#333;
+            .tool-item{
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+    }
 }
