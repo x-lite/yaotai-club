@@ -1,0 +1,31 @@
+@import './variables.less';
+@import './mixin.less';
+.main{
+    .fullScreen();
+    display: flex;
+    .main-left {
+        flex: 0 200px;
+        min-width: 200px;
+        background-color: lime;
+    }
+    .main-right{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .right-header{
+            flex: 0 0 64px;
+            height: 4rem;
+            background-color: red;
+        }
+        .right-content{
+            flex: 1;
+            background: @color-bg;
+        }
+        .right-footer{
+            flex: 0 0 4rem;
+            height: 4rem;
+            background-color: #fff;
+        }
+    }
+
+}
