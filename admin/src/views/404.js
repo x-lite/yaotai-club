@@ -1,11 +1,5 @@
-import React, { Component } from 'react'
+import React from 'react';
 
-export default class NotFound extends Component {
-  render() {
-    return (
-      <div>
-        404 NotFound
-      </div>
-    )
-  }
-}
+export default () => (
+  <div style={{ minHeight: '500px',lineHeight: '500px', height: '100%',textAlign:'center'}} >Not Found</div>
+);

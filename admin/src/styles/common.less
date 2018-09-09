@@ -17,13 +17,18 @@
         display: flex;
         flex-direction: column;
         .right-header{
-            flex: 0 0 64px;
+            flex: 0 0 4rem;
             height: 4rem;
             background-color: red;
         }
         .right-content{
             flex: 1;
+            padding: 1rem;
             background: @color-bg;
+            max-height: calc(100vh - 4rem);
+            overflow-x: hidden;
+            overflow-y: scroll;
+
         }
         .right-footer{
             flex: 0 0 4rem;

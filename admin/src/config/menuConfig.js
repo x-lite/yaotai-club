@@ -5,13 +5,18 @@ export default [
         key: '/admin/home'
     },
     {
+        title: '测试页面',
+        key: '/admin/t',
+        icon: 'alert',
+    },
+    {
         title: '表格',
         icon: 'mail',
         key: '/admin/table',
         chilren: [
             {
                 title: '表格1',
-                key: '/admin/table1'
+                key: '/admin/table'
             },
             {
                 title: '表格2',
@@ -33,7 +38,7 @@ export default [
         chilren: [
             {
                 title: '表单1',
-                key: '/admin/form1'
+                key: '/admin/form'
             },
             {
                 title: '表单2',
@@ -50,7 +55,7 @@ export default [
     },
     {
         title: '系统设置',
-        key: '/admin/t',
+        key: '/admin/setting',
         icon: 'setting',
     }
 ];

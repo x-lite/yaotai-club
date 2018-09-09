@@ -8,8 +8,9 @@ import Login from './views/login';
 import NotFound from './views/404';
 
 // 业务
+import Home from './pages/home';
 import Table from './pages/table';
-import Form from './pages/table';
+import Form from './pages/form';
 
 export default class AppRouter extends Component {
 
@@ -21,6 +22,7 @@ export default class AppRouter extends Component {
                 <Route path="/admin" render={() => 
                     <Admin>
                         <Switch>
+                            <Route path="/admin/home" component={Home}/>
                             <Route path="/admin/table" component={Table}/>
                             <Route path="/admin/form" component={Form}/>
                             <Route component={NotFound}/>
