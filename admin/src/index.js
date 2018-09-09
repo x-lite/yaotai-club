@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Admin from './Admin';
+import AppRouter from './router';
 
-ReactDOM.render(<Admin />, document.getElementById('root'));
+ReactDOM.render(<AppRouter />, document.getElementById('root'));

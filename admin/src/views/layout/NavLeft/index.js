@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Menu, Icon } from 'antd';
-import menuList from '../../config/menuConfig';
-import { bus } from '../../utils'; 
+import { NavLink } from 'react-router-dom';
+import menuList from '../../../config/menuConfig';
+import { bus } from '../../../utils'; 
 import './index.less';
 
 const SubMenu = Menu.SubMenu;
@@ -9,8 +10,11 @@ const SubMenu = Menu.SubMenu;
 
 export default class NavLeft extends Component {
     state = {
-        isfold: false
+        isfold: false,
+        openKeys: []
     }
+    
+    rootSubmenuKeys = menuList.map(item => item.key);
 
     componentWillMount() {
         // const menuListNode = this.renderMenu(menuList)
@@ -43,19 +47,18 @@ export default class NavLeft extends Component {
                 )
             }
             return (<Menu.Item key={item.key} >
-                { item.icon && <Icon type={item.icon} /> }
-                {item.icon && this.state.isfold ? '' :item.title }
+                        <NavLink to={item.key}>
+                            { item.icon && <Icon type={item.icon} /> }
+                            {item.icon && this.state.isfold ? '' :item.title }
+                        </NavLink>
                 </Menu.Item>)
 
         })
 
     }
     
-    rootSubmenuKeys = menuList.map(item => item.key);
+    
 
-    state = {
-        openKeys: []
-    };
     // 手风琴效果
     onOpenChange = (openKeys) => {
         const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);

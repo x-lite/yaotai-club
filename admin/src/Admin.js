@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Row, Col} from 'antd';
-import Header from './views/Header';
-import Footer from './views/Footer';
-import NavLeft from './views/NavLeft';
+import Header from './views/layout/Header';
+import Footer from './views/layout/Footer';
+import NavLeft from './views/layout/NavLeft';
 import './styles/common.less';
 import { bus } from './utils';
 
@@ -27,7 +27,7 @@ export default class Admin extends Component{
                 <Col span={21} className={this.state.isfold ? 'main-right-fold main-right' : 'main-right'}>
                     <Header className="right-header"/>
                     <Row className="right-content">
-                        content
+                        {this.props.children}
                     </Row>
                     <Footer className="right-footer"/>
                 </Col>

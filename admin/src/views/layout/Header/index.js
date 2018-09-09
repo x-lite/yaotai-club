@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Icon, Avatar, Menu, Dropdown, Badge} from 'antd';
-import { bus } from '../../utils';
+import { NavLink } from 'react-router-dom';
+import { bus } from '../../../utils';
 import './index.less';
 export default class Header extends Component {
     state = {
@@ -31,10 +32,16 @@ export default class Header extends Component {
         const menu = (
             <Menu>
                 <Menu.Item key="1">
-                    <a target="_blank" rel="noopener noreferrer">个人中心</a>
+                    <NavLink to={'/admin/profile'}>
+                        个人中心
+                    </NavLink>
                 </Menu.Item>
                 <Menu.Divider />
-                <Menu.Item key="3" >退出登录</Menu.Item>
+                <Menu.Item key="3" >
+                    <NavLink to={'/login'}>
+                        退出登录
+                    </NavLink>
+                </Menu.Item>
             </Menu>
         );
         return (
