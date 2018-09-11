@@ -10,13 +10,6 @@ export default class Header extends Component {
         avatarSrc: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'
     };
 
-    renderIocn = (isFold) => {
-        if (!isFold){
-            return <Icon type="menu-fold" theme="outlined" />
-        } else {
-            return <Icon type="menu-unfold" theme="outlined" />
-        }
-    }
 
     hanldeClick = e => {
         this.setState({
@@ -48,7 +41,7 @@ export default class Header extends Component {
             <div className="header">
                 <div className="header-tools">
                     <div className="tools-fold" onClick={this.hanldeClick}>
-                        {this.renderIocn(this.state.isFold)}
+                        <Icon type={this.state.isFold ? 'menu-unfold' :'menu-fold'} theme="outlined" />
                     </div>
                     <div className="tools-right">
                         <span className="tool-item">

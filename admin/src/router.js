@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import App from './App';
 
 // app
@@ -9,7 +9,8 @@ import NotFound from './views/404';
 
 // 业务
 import Home from './pages/home';
-import Table from './pages/table';
+import BaseTable from './pages/table';
+import Test from './pages/Test';
 import Form from './pages/form';
 
 export default class AppRouter extends Component {
@@ -19,18 +20,20 @@ export default class AppRouter extends Component {
         <Router>
             <App>
                 <Route path="/login" component={Login}/>
+                <Route exact path="/" render={() => 
+                    <Redirect to="/login"/>
+                } />
                 <Route path="/admin" render={() => 
                     <Admin>
                         <Switch>
                             <Route path="/admin/home" component={Home}/>
-                            <Route path="/admin/table" component={Table}/>
+                            <Route path="/admin/t" component={Test} />
+                            <Route path="/admin/table" component={BaseTable}/>
                             <Route path="/admin/form" component={Form}/>
                             <Route component={NotFound}/>
                         </Switch>
                     </Admin>
                 }/>
-                <Route/>
-                <Route/>
             </App>
         </Router>
     );
